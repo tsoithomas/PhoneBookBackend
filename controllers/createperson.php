@@ -11,7 +11,7 @@ $stmt->bind_param("ss", $fname, $lname);
 $stmt->execute();
 
 
-$person = array();
+$persons = array();
 $result = $mysqli->query("SELECT * FROM persons ORDER BY personid");
 while ($row = $result->fetch_assoc()) {
     $persons[] = $row;

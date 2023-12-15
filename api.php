@@ -17,7 +17,13 @@ switch ($action) {
 	case "listphones":
 		require_once("controllers/listphones.php");
 		break;
-	default:
+    case "createphone":
+        require_once("controllers/createphone.php");
+        break;
+    case "delphone":
+        require_once("controllers/delphone.php");
+        break;
+    default:
 		die("Error");
 }
 
