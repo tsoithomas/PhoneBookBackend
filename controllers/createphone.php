@@ -12,7 +12,11 @@ $stmt->execute();
 
 
 $phones = array();
-$result = $mysqli->query("SELECT * FROM phones ORDER BY personid");
+$stmt = $mysqli->prepare("SELECT phoneid, phone FROM phones WHERE personid = ? ORDER BY phoneid");
+$stmt->bind_param("i", $personid);
+$stmt->execute();
+
+$result = $stmt->get_result();
 while ($row = $result->fetch_assoc()) {
     $phones[] = $row;
 }
