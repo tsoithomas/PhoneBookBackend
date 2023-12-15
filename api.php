@@ -8,14 +8,14 @@ switch ($action) {
 	case "listpersons":
 		require_once("controllers/listpersons.php");
 		break;
-	case "getperson":
-		require_once("controllers/getperson.php");
-		break;
 	case "createperson":
 		require_once("controllers/createperson.php");
 		break;
 	case "delperson":
 		require_once("controllers/delperson.php");
+		break;
+	case "listphones":
+		require_once("controllers/listphones.php");
 		break;
 	default:
 		die("Error");
