@@ -1,7 +1,9 @@
 <?php
+require_once("lib.php");
 
 $personid = $_GET["personid"];
 
+$json = array();
 $phones = array();
 
 $stmt = $mysqli->prepare("SELECT phoneid, phone FROM phones WHERE personid = ? ORDER BY phoneid");
@@ -13,8 +15,9 @@ while ($row = $result->fetch_assoc()) {
     $phones[] = $row;
 }
 $result->close();
+$json["phones"] = $phones;
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
-echo json_encode($phones);
+return_json($json, 200);
